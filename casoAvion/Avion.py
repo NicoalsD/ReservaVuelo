@@ -10,7 +10,6 @@ class Avion:
         self.__sillas = []
         
         # Crear sillas ejecutivas (1-8)
-        # Dos filas con 4 sillas cada una (2 ventanas y 2 pasillos por fila)
         for i in range(1, 9):
             # Definir ubicación:
             # - Ventana: sillas 1, 4, 5, 8
@@ -20,13 +19,11 @@ class Avion:
             else:
                 ubicacion = Silla.Ubicacion.PASILLO
             
-            # Crear y añadir la silla ejecutiva
             self.__sillas.append(Silla(i, Silla.Clase.EJECUTIVA, ubicacion))
         
         # Crear sillas económicas (9-50)
         # 7 filas con 6 sillas cada una (2 ventanas, 2 centros, 2 pasillos por fila)
         for i in range(9, 51):
-            # Calcular posición relativa dentro de la fila (1-6)
             posicion = (i - 9) % 6 + 1
             
             # Definir ubicación basada en la posición en la fila:
@@ -98,7 +95,6 @@ class Avion:
     
     # 7. Buscar homónimos en clase económica
     def hayDosHomonimosEconomica(self):
-        # Crear lista de nombres de pasajeros en clase económica
         nombres = []
         for i in range(8, len(self.__sillas)):
             silla = self.__sillas[i]
